@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{96E598B8-3F8B-452C-8AB5-C1DEAEAA1C7B}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Rick.Loading.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\demostracao\RI2BCarregando.Demostracao.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Rick_Loading">
+        <MSBuild Projects="Rick.Loading.dproj"/>
+    </Target>
+    <Target Name="Rick_Loading:Clean">
+        <MSBuild Projects="Rick.Loading.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Rick_Loading:Make">
+        <MSBuild Projects="Rick.Loading.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="RI2BCarregando_Demostracao">
+        <MSBuild Projects="src\demostracao\RI2BCarregando.Demostracao.dproj"/>
+    </Target>
+    <Target Name="RI2BCarregando_Demostracao:Clean">
+        <MSBuild Projects="src\demostracao\RI2BCarregando.Demostracao.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RI2BCarregando_Demostracao:Make">
+        <MSBuild Projects="src\demostracao\RI2BCarregando.Demostracao.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Rick_Loading;RI2BCarregando_Demostracao"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Rick_Loading:Clean;RI2BCarregando_Demostracao:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Rick_Loading:Make;RI2BCarregando_Demostracao:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

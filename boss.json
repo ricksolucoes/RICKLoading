@@ -1,0 +1,9 @@
+{
+	"name": "RI2BCarregando",
+	"description": "Classe para apresentar tela animada de carregando",
+	"version": "1.0.1",
+	"homepage": "",
+	"mainsrc": "./src",
+	"projects": [],
+	"dependencies": {}
+}

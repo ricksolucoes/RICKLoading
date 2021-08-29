@@ -1,7 +1,7 @@
 {
-	"name": "RI2BCarregando",
+	"name": "RickLoading",
 	"description": "Classe para apresentar tela animada de carregando",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"homepage": "",
 	"mainsrc": "./src",
 	"projects": [],

@@ -32,9 +32,9 @@ uses
 
 procedure TForm1.btnModifiedClick(Sender: TObject);
 var
-  LLoading: iLoading;
+  LLoading: iRickLoading;
 begin
-  LLoading:= TLoading.New;
+  LLoading:= TRickLoading.New;
   LLoading.DoMessage('Loading Modified'); //Changes the initial loading message
   LLoading.SourceSize(32); //Change the font size
   LLoading.SourceName('Segoe UI'); //Change the font type
@@ -72,7 +72,7 @@ end;
 procedure TForm1.btSimpleClick(Sender: TObject);
 
 begin
-  TLoading.New
+  TRickLoading.New
     .Execute(
     procedure
     begin
@@ -82,7 +82,7 @@ begin
       TThread.Synchronize(TThread.Current,
       procedure
       begin
-        TLoading.New
+        TRickLoading.New
           .ChangeMessage('Changing message'); //Change the message to the user
       end);
 

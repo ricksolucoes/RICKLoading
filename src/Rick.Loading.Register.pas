@@ -15,7 +15,7 @@ uses
   Rick.Loading.Interfaces;
 
 type
-  TLoading = class(TInterfacedObject, iLoading)
+  TRickLoading = class(TInterfacedObject, iRickLoading)
   private
     class var FMensage: String;
     class var FSourceName: string;
@@ -31,16 +31,16 @@ type
     class var FOpacityBackground: Single;
     class var FOpacityAnimationText: Single;
 
-    function Execute(const AProc: TProc): iLoading;
-    function DoMessage(const AValue: string): iLoading;
-    function ChangeMessage(const AValue: string): iLoading;
-    function SourceSize(const AValue: Integer): iLoading;
-    function SourceName(const AValue: string): iLoading;
-    function SourceColor(Const AValue: TAlphaColor): iLoading;
-    function AnimationColor(Const AValue: TAlphaColor): iLoading;
-    function BackgroundColor(Const AValue: TAlphaColor): iLoading;
-    function OpacityBackground(Const AValue: Single): iLoading;
-    function OpacityAnimationText(Const AValue: Single): iLoading;
+    function Execute(const AProc: TProc): iRickLoading;
+    function DoMessage(const AValue: string): iRickLoading;
+    function ChangeMessage(const AValue: string): iRickLoading;
+    function SourceSize(const AValue: Integer): iRickLoading;
+    function SourceName(const AValue: string): iRickLoading;
+    function SourceColor(Const AValue: TAlphaColor): iRickLoading;
+    function AnimationColor(Const AValue: TAlphaColor): iRickLoading;
+    function BackgroundColor(Const AValue: TAlphaColor): iRickLoading;
+    function OpacityBackground(Const AValue: Single): iRickLoading;
+    function OpacityAnimationText(Const AValue: Single): iRickLoading;
 
     class procedure ConstructAnimation;
     class procedure DestroyAnimation;
@@ -49,7 +49,7 @@ type
 
   public
     destructor Destroy; override;
-    class function New: iLoading;
+    class function New: iRickLoading;
   end;
 
 implementation
@@ -62,26 +62,26 @@ uses
 
   System.Classes;
 
-function TLoading.AnimationColor(const AValue: TAlphaColor): iLoading;
+function TRickLoading.AnimationColor(const AValue: TAlphaColor): iRickLoading;
 begin
   Result:= Self;
 
   FAnimationColor:= AValue;
 end;
 
-function TLoading.SourceColor(const AValue: TAlphaColor): iLoading;
+function TRickLoading.SourceColor(const AValue: TAlphaColor): iRickLoading;
 begin
   Result := Self;
   FSourceColor := AValue;
 end;
 
-function TLoading.BackgroundColor(const AValue: TAlphaColor): iLoading;
+function TRickLoading.BackgroundColor(const AValue: TAlphaColor): iRickLoading;
 begin
   Result:= Self;
   FBackgroundColor:= AValue;
 end;
 
-constructor TLoading.Create;
+constructor TRickLoading.Create;
 begin
   FMensage := 'Carregando...';
   FSourceName := 'Segoe UI';
@@ -93,7 +93,7 @@ begin
   FOpacityAnimationText:= 1;
 end;
 
-class procedure TLoading.ConstructAnimation;
+class procedure TRickLoading.ConstructAnimation;
 var
   FService: IFMXVirtualKeyboardService;
 begin
@@ -179,13 +179,13 @@ begin
   FService := nil;
 end;
 
-destructor TLoading.Destroy;
+destructor TRickLoading.Destroy;
 begin
 
   inherited;
 end;
 
-class procedure TLoading.DestroyAnimation;
+class procedure TRickLoading.DestroyAnimation;
 begin
   if Assigned(FLayout) then
   begin
@@ -217,7 +217,7 @@ begin
   FBackground := nil;
 end;
 
-function TLoading.Execute(const AProc: TProc): iLoading;
+function TRickLoading.Execute(const AProc: TProc): iRickLoading;
 begin
   Result := Self;
   ConstructAnimation;
@@ -238,13 +238,13 @@ begin
 
 end;
 
-function TLoading.DoMessage(const AValue: string): iLoading;
+function TRickLoading.DoMessage(const AValue: string): iRickLoading;
 begin
   Result := Self;
   FMensage := AValue;
 end;
 
-function TLoading.ChangeMessage(const AValue: string): iLoading;
+function TRickLoading.ChangeMessage(const AValue: string): iRickLoading;
 begin
   Result:= Self;
 
@@ -259,30 +259,30 @@ begin
 
 end;
 
-class function TLoading.New: iLoading;
+class function TRickLoading.New: iRickLoading;
 begin
   Result := Self.Create;
 end;
 
-function TLoading.SourceName(const AValue: string): iLoading;
+function TRickLoading.SourceName(const AValue: string): iRickLoading;
 begin
   Result := Self;
   FSourceName := AValue;
 end;
 
-function TLoading.OpacityAnimationText(const AValue: Single): iLoading;
+function TRickLoading.OpacityAnimationText(const AValue: Single): iRickLoading;
 begin
   Result:= Self;
   FOpacityAnimationText:= AValue;
 end;
 
-function TLoading.OpacityBackground(const AValue: Single): iLoading;
+function TRickLoading.OpacityBackground(const AValue: Single): iRickLoading;
 begin
   Result:= Self;
   FOpacityBackground:= AValue;
 end;
 
-function TLoading.SourceSize(const AValue: Integer): iLoading;
+function TRickLoading.SourceSize(const AValue: Integer): iRickLoading;
 begin
   Result := Self;
   FSourceSize := AValue;

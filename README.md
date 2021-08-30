@@ -23,7 +23,7 @@ Add the following folders to your project, in <em>Project &gt; Options &gt; Reso
 <span class="pl-k">implementation</span>
 
 begin
-  TLoading.New
+  TRickLoading.New
     .Executar(
     procedure
     begin
@@ -47,7 +47,7 @@ end;</span></pre>
 <span class="pl-k">implementation</span>
 
 begin
-  TLoading.New
+  TRickLoading.New
     .Executar(
     procedure
     begin
@@ -57,7 +57,7 @@ begin
       TThread.Synchronize(TThread.Current,
       procedure
       begin
-        TLoading.New
+        TRickLoading.New
           .ChangeMessage('Changing message'); //Change the message to the user
       end);
 
@@ -82,9 +82,9 @@ end;</span></pre>
 <span class="pl-k">implementation</span>
 
 var
-  LLoading: iLoading;
+  LLoading: iRickLoading;
 begin
-  LLoading:= TLoading.New;
+  LLoading:= TRickLoading.New;
   LLoading.DoMessage('Loading Modified'); //Changes the initial loading message
   LLoading.SourceSize(32); //Change the font size
   LLoading.SourceName('Segoe UI'); //Change the font type

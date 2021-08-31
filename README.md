@@ -1,9 +1,12 @@
-# RickLoading
+# RICKLoading
+
+<p align="center"> <img src="https://user-images.githubusercontent.com/79030707/131561139-368fe33f-aac8-49bc-9aaf-3239b15e96b7.png" height=45% width=45%></p> 
 <p align="center">
-  <b>RickLoading</b> is a Delphi library developed to present a loading screen. Using delphi's Fluent Interface.<br> 
+  <b>RICKLoading</b> is a Delphi library developed to present a loading screen. Using delphi's Fluent Interface.<br> 
   Inspired by Master Heber in his class (https://www.youtube.com/watch?v=AvNXYopib3Q&t=511s), <br>
   on channel 99Coders (https://www.youtube.com/channel/UCExEoXjNTmKLFLK2qpBSI5g)
 </p>
+
 
 <h2>⚙️ Install</h2>
 <p>*Pre-requisites Delphi FMX</p>

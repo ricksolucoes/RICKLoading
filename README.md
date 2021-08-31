@@ -11,7 +11,7 @@
 <h2>⚙️ Install</h2>
 <p>*Pre-requisites Delphi FMX</p>
 <li><strong>Installation with BOSS</strong>: <br>
-<pre>$ boss install https://github.com/ricksolucoes/rickloading</pre>
+<pre>$ boss install https://github.com/ricksolucoes/RICKLoading</pre>
 
 <li><strong>Manual Installation</strong>: <br>
 Add the following folders to your project, in <em>Project &gt; Options &gt; Resource Compiler &gt; Directories and Conditionals &gt; Include file search path</em></li>

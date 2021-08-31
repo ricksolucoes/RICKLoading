@@ -1,9 +1,9 @@
-program RI2BCarregando.Demostracao;
+program RICKLoading.Demo;
 
 uses
   System.StartUpCopy,
   FMX.Forms,
-  RIBCarregar.View.Demostracao in 'RIBCarregar.View.Demostracao.pas' {Form1};
+  RICK.Loading.View.Main in 'RICK.Loading.View.Main.pas' {Form1};
 
 {$R *.res}
 

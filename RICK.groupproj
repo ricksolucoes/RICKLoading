@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{96E598B8-3F8B-452C-8AB5-C1DEAEAA1C7B}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="RICKLoading.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\demostracao\RICKLoading.Demo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RICKLoading">
+        <MSBuild Projects="RICKLoading.dproj"/>
+    </Target>
+    <Target Name="RICKLoading:Clean">
+        <MSBuild Projects="RICKLoading.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RICKLoading:Make">
+        <MSBuild Projects="RICKLoading.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="RICKLoading_Demo">
+        <MSBuild Projects="src\demostracao\RICKLoading.Demo.dproj"/>
+    </Target>
+    <Target Name="RICKLoading_Demo:Clean">
+        <MSBuild Projects="src\demostracao\RICKLoading.Demo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RICKLoading_Demo:Make">
+        <MSBuild Projects="src\demostracao\RICKLoading.Demo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RICKLoading;RICKLoading_Demo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RICKLoading:Clean;RICKLoading_Demo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RICKLoading:Make;RICKLoading_Demo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

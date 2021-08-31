@@ -18,12 +18,12 @@ Add the following folders to your project, in <em>Project &gt; Options &gt; Reso
 <pre><code>../rickloading/src</code></pre>
 
 <pre><span class="pl-k">uses</span>
-  Rick.Loading.Register;
+  RICK.Loading;
 
 <span class="pl-k">implementation</span>
 
 begin
-  TRickLoading.New
+  TRICKLoading.New
     .Executar(
     procedure
     begin
@@ -42,12 +42,12 @@ end;</span></pre>
 <li><strong>Another way to use</strong>: <br>
 
 <pre><span class="pl-k">uses</span>
-  Rick.Loading.Register;
+  RICK.Loading;
 
 <span class="pl-k">implementation</span>
 
 begin
-  TRickLoading.New
+  TRICKLoading.New
     .Executar(
     procedure
     begin
@@ -57,7 +57,7 @@ begin
       TThread.Synchronize(TThread.Current,
       procedure
       begin
-        TRickLoading.New
+        TRICKLoading.New
           .ChangeMessage('Changing message'); //Change the message to the user
       end);
 
@@ -73,29 +73,29 @@ begin
     end);
 end;</span></pre>
 
-<li><strong>Exmplo utilizando a Interface</strong>: <br>
+<li><strong>Example using the Interface</strong>: <br>
 
 <pre><span class="pl-k">uses</span>
-  Rick.Loading.Interfaces,
-  Rick.Loading.Register;
+  RICK.Loading.Interfaces,
+  RICK.Loading;
 
 <span class="pl-k">implementation</span>
 
 var
-  LLoading: iRickLoading;
+  LRICKLoading: iRICKLoading;
 begin
-  LLoading:= TRickLoading.New;
-  LLoading.DoMessage('Loading Modified'); //Changes the initial loading message
-  LLoading.SourceSize(32); //Change the font size
-  LLoading.SourceName('Segoe UI'); //Change the font type
-  LLoading.SourceColor($FFF52121); //Change the font color
-  LLoading.AnimationColor($FFF52121); //Changes the color of the animation
-  LLoading.BackgroundColor($FF24CCC6); //Changes the color of the loading background
-  LLoading.OpacityBackground(0.9); //Changes the opacity of the background;
-  LLoading.OpacityAnimationText(0.6); //Change the opacity of text
+  LRICKLoading:= TRICKLoading.New;
+  LRICKLoading.DoMessage('Loading Modified'); //Changes the initial loading message
+  LRICKLoading.SourceSize(32); //Change the font size
+  LRICKLoading.SourceName('Segoe UI'); //Change the font type
+  LRICKLoading.SourceColor($FFF52121); //Change the font color
+  LRICKLoading.AnimationColor($FFF52121); //Changes the color of the animation
+  LRICKLoading.BackgroundColor($FF24CCC6); //Changes the color of the loading background
+  LRICKLoading.OpacityBackground(0.9); //Changes the opacity of the background;
+  LRICKLoading.OpacityAnimationText(0.6); //Change the opacity of text
 
 
-  LLoading.Execute(
+  LRICKLoading.Execute(
   procedure
   begin
 
@@ -104,7 +104,7 @@ begin
     TThread.Synchronize(TThread.Current,
     procedure
     begin
-      LLoading.ChangeMessage('Changing message'); //Change the message to the user
+      LRICKLoading.ChangeMessage('Changing message'); //Change the message to the user
     end);
 
     TThread.Sleep(1500);

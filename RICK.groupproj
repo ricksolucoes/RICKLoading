@@ -6,7 +6,7 @@
         <Projects Include="RICKLoading.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="src\demostracao\RICKLoading.Demo.dproj">
+        <Projects Include="Samples\Delphi\FMX\RICKLoading.Demo.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -27,13 +27,13 @@
         <MSBuild Projects="RICKLoading.dproj" Targets="Make"/>
     </Target>
     <Target Name="RICKLoading_Demo">
-        <MSBuild Projects="src\demostracao\RICKLoading.Demo.dproj"/>
+        <MSBuild Projects="Samples\Delphi\FMX\RICKLoading.Demo.dproj"/>
     </Target>
     <Target Name="RICKLoading_Demo:Clean">
-        <MSBuild Projects="src\demostracao\RICKLoading.Demo.dproj" Targets="Clean"/>
+        <MSBuild Projects="Samples\Delphi\FMX\RICKLoading.Demo.dproj" Targets="Clean"/>
     </Target>
     <Target Name="RICKLoading_Demo:Make">
-        <MSBuild Projects="src\demostracao\RICKLoading.Demo.dproj" Targets="Make"/>
+        <MSBuild Projects="Samples\Delphi\FMX\RICKLoading.Demo.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
         <CallTarget Targets="RICKLoading;RICKLoading_Demo"/>

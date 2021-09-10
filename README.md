@@ -18,7 +18,7 @@ Add the following folders to your project, in <em>Project &gt; Options &gt; Reso
 <pre><code>../rickloading/src</code></pre>
 
 <h2>⚡️ How to use the project</h2>
-<pre><code>../rickloading/src</code></pre>
+<br>
 
 <pre><span class="pl-k">uses</span>
   RICK.Loading;
@@ -45,7 +45,8 @@ end;</span></pre>
 <li><strong>Another way to use</strong>: <br>
 
 <pre><span class="pl-k">uses</span>
-  RICK.Loading;
+  RICK.Loading, <br>
+  RICK.Loading.Interfaces;
 
 <span class="pl-k">implementation</span>
 

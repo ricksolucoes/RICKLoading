@@ -20,7 +20,7 @@ type
     function AnimationColor(Const AValue: TAlphaColor): iRICKLoading;
     function BackgroundColor(Const AValue: TAlphaColor): iRICKLoading;
     function OpacityBackground(Const AValue: Single): iRICKLoading;
-    function OpacityAnimationText(Const Value: Single): iRICKLoading;
+    function OpacityAnimationText(Const AValue: Single): iRICKLoading;
 
 
   end;

@@ -153,6 +153,7 @@ begin
   FLabel.Font.Size := FSourceSize;
   FLabel.Height := 70;
   FLabel.Width := FBackground.Width - 100;
+  FLabel.AutoSize:= True;
   FLabel.FontColor := FSourceColor;
   FLabel.TextSettings.HorzAlign := TTextAlign.Center;
   FLabel.TextSettings.VertAlign := TTextAlign.Leading;

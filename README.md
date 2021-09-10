@@ -42,7 +42,7 @@ begin
     end);
 end;</span></pre>
 
-<li><strong>Another way to use</strong>: <br>
+<li><strong>Customizing the message</strong>: <br><br>
 
 <pre><span class="pl-k">uses</span>
   RICK.Loading, <br>
@@ -77,7 +77,7 @@ begin
     end);
 end;</span></pre>
 
-<li><strong>Example using the Interface</strong>: <br>
+<li><strong>Using an interface</strong>: <br><br>
 
 <pre><span class="pl-k">uses</span>
   RICK.Loading.Interfaces,

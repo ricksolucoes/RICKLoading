@@ -26,7 +26,7 @@ $ boss install https://github.com/ricksolucoes/RICKLoading
  ## ⚡️ How to use the project
 Example of using the **RICKLoading**
 
-## Sample Show Form
+## Sample Loading
   
 - How to use Loading
 ```delphi  

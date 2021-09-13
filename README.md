@@ -11,7 +11,7 @@ on channel 99Coders https://www.youtube.com/channel/UCExEoXjNTmKLFLK2qpBSI5g
 ## ⚙️ Pre-requisites
 
 1. Delphi FMX
-2. Install the dependency [BOOS][0] ```https://github.com/ricksolucoes/boss``` manager to facilitate the installation of the library.
+2.  If you choose to use [BOOS][0] ```https://github.com/ricksolucoes/boss or https://github.com/HashLoad/boss```  the dependency manager, you will have the facility to install all frameworks that are [Pre-requisites](#pre-requisites) for the project.
 
 ## 💻 Installation
 

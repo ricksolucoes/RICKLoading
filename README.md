@@ -1,12 +1,15 @@
 [0]: https://github.com/ricksolucoes/boss "Site do BOOS"
 
 # RICKLoading
-<p align="center"> 
-  <img src="https://user-images.githubusercontent.com/79030707/131561139-368fe33f-aac8-49bc-9aaf-3239b15e96b7.png" height=45% width=45%><br>
-  <b>RICKLoading</b> is a Delphi library developed to present a loading screen. Using delphi's Fluent Interface. <br>
-Inspired by Master Heber in his class https://www.youtube.com/watch?v=AvNXYopib3Q&t=511s, <br>
-on channel 99Coders https://www.youtube.com/channel/UCExEoXjNTmKLFLK2qpBSI5g 
+<p align="center">
+ **RICKLoading** is a Delphi library developed to present a loading screen. Using delphi's Fluent Interface. 
 </p>
+<p align="center">
+Inspired by Master Heber in his class https://www.youtube.com/watch?v=AvNXYopib3Q&t=511s, on channel 99Coders https://www.youtube.com/channel/UCExEoXjNTmKLFLK2qpBSI5g
+</p>
+
+![Loading](https://user-images.githubusercontent.com/79030707/133644292-b7fe2525-24ef-476c-85cc-bcdc5c81359a.png) 
+
 
 ## ⚙️ Pre-requisites
 

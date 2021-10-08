@@ -12,7 +12,7 @@ uses
   FMX.Layouts,
   FMX.StdCtrls,
 
-  RICK.Loading.Interfaces;
+  RICK.Loading.Interfaces, System.Classes;
 
 type
   TRICKLoading = class(TInterfacedObject, iRICKLoading)
@@ -31,7 +31,8 @@ type
     class var FOpacityBackground: Single;
     class var FOpacityAnimationText: Single;
 
-    function Execute(const AProc: TProc): iRICKLoading;
+    function Execute(const AProc: TProc): iRICKLoading; overload;
+    function Execute(const AProc: TProc; ANotifyEvent: TNotifyEvent): iRICKLoading; overload;
     function DoMessage(const AValue: string): iRICKLoading;
     function ChangeMessage(const AValue: string): iRICKLoading;
     function SourceSize(const AValue: Integer): iRICKLoading;
@@ -41,9 +42,9 @@ type
     function BackgroundColor(Const AValue: TAlphaColor): iRICKLoading;
     function OpacityBackground(Const AValue: Single): iRICKLoading;
     function OpacityAnimationText(Const AValue: Single): iRICKLoading;
+    procedure DestroyAnimation;
 
     class procedure ConstructAnimation;
-    class procedure DestroyAnimation;
 
     constructor Create;
 
@@ -58,9 +59,7 @@ uses
   FMX.Types,
   FMX.Graphics,
   FMX.Platform,
-  FMX.VirtualKeyboard,
-
-  System.Classes;
+  FMX.VirtualKeyboard;
 
 function TRICKLoading.AnimationColor(const AValue: TAlphaColor): iRICKLoading;
 begin
@@ -186,7 +185,7 @@ begin
   inherited;
 end;
 
-class procedure TRICKLoading.DestroyAnimation;
+procedure TRICKLoading.DestroyAnimation;
 begin
   if Assigned(FLayout) then
   begin
@@ -243,6 +242,25 @@ function TRICKLoading.DoMessage(const AValue: string): iRICKLoading;
 begin
   Result := Self;
   FMensage := AValue;
+end;
+
+function TRICKLoading.Execute(const AProc: TProc;
+  ANotifyEvent: TNotifyEvent): iRICKLoading;
+var
+  LThread: TThread;
+begin
+  Result := Self;
+  ConstructAnimation;
+
+  LThread:= TThread.CreateAnonymousThread(
+    procedure
+    begin
+      AProc;
+    end);
+
+  LThread.FreeOnTerminate:= True;
+  LThread.OnTerminate:= ANotifyEvent;
+  LThread.Start;
 end;
 
 function TRICKLoading.ChangeMessage(const AValue: string): iRICKLoading;

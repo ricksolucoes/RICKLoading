@@ -6,7 +6,7 @@
 **Pre-release Version 2.0.0, ReadMe, with the information already in the repository**
 
 <p align="center">
- **RICKLoading** is a Delphi library developed to present a loading screen. Using delphi's Fluent Interface. 
+ <b>RICKLoading</b> is a Delphi library developed to present a loading screen. Using delphi's Fluent Interface. 
 </p>
 <p align="center">
 Inspired by Master Heber in his class https://www.youtube.com/watch?v=AvNXYopib3Q&t=511s, on channel 99Coders https://www.youtube.com/channel/UCExEoXjNTmKLFLK2qpBSI5g

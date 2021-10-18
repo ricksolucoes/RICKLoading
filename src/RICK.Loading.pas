@@ -102,9 +102,9 @@ begin
     raise Exception.Create('Insert the form to activate the Loading');
 
   // Panel de FBackground opaco...
-  FBackground := TRectangle.Create(Application.MainForm);
+  FBackground := TRectangle.Create(FForm);
   FBackground.Opacity := 0;
-  FBackground.Parent := Application.MainForm;
+  FBackground.Parent := FForm;
   FBackground.Visible := true;
   FBackground.Align := TAlignLayout.Contents;
   FBackground.Fill.Color := FBackgroundColor;
@@ -113,9 +113,9 @@ begin
   FBackground.Visible := true;
 
   // FLayout contendo o texto e o FArc...
-  FLayout := TLayout.Create(Application.MainForm);
+  FLayout := TLayout.Create(FForm);
   FLayout.Opacity := 0;
-  FLayout.Parent := Application.MainForm;
+  FLayout.Parent := FForm;
   FLayout.Visible := true;
   FLayout.Align := TAlignLayout.Contents;
   FLayout.Width := 250;
@@ -123,7 +123,7 @@ begin
   FLayout.Visible := true;
 
   // Arco da animacao...
-  FArc := TArc.Create(Application.MainForm);
+  FArc := TArc.Create(FForm);
   FArc.Visible := true;
   FArc.Parent := FLayout;
   FArc.Align := TAlignLayout.Center;
@@ -137,7 +137,7 @@ begin
   FArc.Position.Y := 0;
 
   // Animacao...
-  FAnimation := TFloatAnimation.Create(Application.MainForm);
+  FAnimation := TFloatAnimation.Create(FForm);
   FAnimation.Parent := FArc;
   FAnimation.StartValue := 0;
   FAnimation.StopValue := 360;
@@ -149,7 +149,7 @@ begin
   FAnimation.Start;
 
   // Label do texto (DoMensage)...
-  FLabel := TLabel.Create(Application.MainForm);
+  FLabel := TLabel.Create(FForm);
   FLabel.Parent := FLayout;
   FLabel.Align := TAlignLayout.Center;
   FLabel.Margins.Top := 60;

@@ -35,7 +35,7 @@ procedure TForm1.btnModifiedClick(Sender: TObject);
 var
   LRICKLoading: iRICKLoading;
 begin
-  LRICKLoading:= TRICKLoading.New;
+  LRICKLoading:= TRICKLoading.New.Form(Self);
   LRICKLoading.DoMessage('Loading Modified'); //Changes the initial loading message
   LRICKLoading.SourceSize(32); //Change the font size
   LRICKLoading.SourceName('Segoe UI'); //Change the font type
@@ -74,29 +74,30 @@ procedure TForm1.btSimpleClick(Sender: TObject);
 
 begin
   TRICKLoading.New
-    .Execute(
-    procedure
-    begin
-      //Delayed Command
-      Sleep(500);
-
-      TThread.Synchronize(TThread.Current,
+    .Form(Self) //Inform the form for Loading
+      .Execute(
       procedure
       begin
-        TRICKLoading.New
-          .ChangeMessage('Changing message'); //Change the message to the user
-      end);
+        //Delayed Command
+        Sleep(500);
 
-      //Another command if there is one
-      TThread.Sleep(1500);
+        TThread.Synchronize(TThread.Current,
+        procedure
+        begin
+          TRICKLoading.New.Form(Self)
+            .ChangeMessage('Changing message'); //Change the message to the user
+        end);
 
-      TThread.Synchronize(TThread.Current,
-      procedure
-      begin
-        //Command to refresh the screen
-        ShowMessage('Command to refresh the screen here...');
+        //Another command if there is one
+        TThread.Sleep(1500);
+
+        TThread.Synchronize(TThread.Current,
+        procedure
+        begin
+          //Command to refresh the screen
+          ShowMessage('Command to refresh the screen here...');
+        end);
       end);
-    end);
 end;
 
 end.

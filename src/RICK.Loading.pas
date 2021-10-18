@@ -30,7 +30,9 @@ type
     class var FLabel: TLabel;
     class var FOpacityBackground: Single;
     class var FOpacityAnimationText: Single;
+    class var FForm: TForm;
 
+    function Form(AValue: TForm): iRICKLoading;
     function Execute(const AProc: TProc): iRICKLoading; overload;
     function Execute(const AProc: TProc; ANotifyEvent: TNotifyEvent): iRICKLoading; overload;
     function DoMessage(const AValue: string): iRICKLoading;
@@ -96,11 +98,13 @@ class procedure TRICKLoading.ConstructAnimation;
 var
   FService: IFMXVirtualKeyboardService;
 begin
+  if not Assigned(FForm) then
+    raise Exception.Create('Insert the form to activate the Loading');
 
   // Panel de FBackground opaco...
-  FBackground := TRectangle.Create(Screen.ActiveForm);
+  FBackground := TRectangle.Create(Application.MainForm);
   FBackground.Opacity := 0;
-  FBackground.Parent := Screen.ActiveForm;
+  FBackground.Parent := Application.MainForm;
   FBackground.Visible := true;
   FBackground.Align := TAlignLayout.Contents;
   FBackground.Fill.Color := FBackgroundColor;
@@ -109,9 +113,9 @@ begin
   FBackground.Visible := true;
 
   // FLayout contendo o texto e o FArc...
-  FLayout := TLayout.Create(Screen.ActiveForm);
+  FLayout := TLayout.Create(Application.MainForm);
   FLayout.Opacity := 0;
-  FLayout.Parent := Screen.ActiveForm;
+  FLayout.Parent := Application.MainForm;
   FLayout.Visible := true;
   FLayout.Align := TAlignLayout.Contents;
   FLayout.Width := 250;
@@ -119,7 +123,7 @@ begin
   FLayout.Visible := true;
 
   // Arco da animacao...
-  FArc := TArc.Create(Screen.ActiveForm);
+  FArc := TArc.Create(Application.MainForm);
   FArc.Visible := true;
   FArc.Parent := FLayout;
   FArc.Align := TAlignLayout.Center;
@@ -133,7 +137,7 @@ begin
   FArc.Position.Y := 0;
 
   // Animacao...
-  FAnimation := TFloatAnimation.Create(Screen.ActiveForm);
+  FAnimation := TFloatAnimation.Create(Application.MainForm);
   FAnimation.Parent := FArc;
   FAnimation.StartValue := 0;
   FAnimation.StopValue := 360;
@@ -145,7 +149,7 @@ begin
   FAnimation.Start;
 
   // Label do texto (DoMensage)...
-  FLabel := TLabel.Create(Screen.ActiveForm);
+  FLabel := TLabel.Create(Application.MainForm);
   FLabel.Parent := FLayout;
   FLabel.Align := TAlignLayout.Center;
   FLabel.Margins.Top := 60;
@@ -261,6 +265,12 @@ begin
   LThread.FreeOnTerminate:= True;
   LThread.OnTerminate:= ANotifyEvent;
   LThread.Start;
+end;
+
+function TRICKLoading.Form(AValue: TForm): iRICKLoading;
+begin
+  Result:= Self;
+  FForm:= AValue;
 end;
 
 function TRICKLoading.ChangeMessage(const AValue: string): iRICKLoading;

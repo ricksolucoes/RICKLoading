@@ -11,6 +11,7 @@ uses
 type
   iRICKLoading = interface
     ['{B2B9D25B-20AF-4F7D-8C1F-2E110D9B858F}']
+    function Form(AValue: TForm): iRICKLoading;
     function Execute(const AProc: TProc): iRICKLoading; overload;
     function Execute(const AProc: TProc; ANotifyEvent: TNotifyEvent): iRICKLoading; overload;
     function DoMessage(const AValue: string): iRICKLoading;

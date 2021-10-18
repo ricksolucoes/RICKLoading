@@ -1,6 +1,10 @@
 [0]: https://github.com/ricksolucoes/boss "Site do BOOS"
 
+
 # RICKLoading
+
+**Pre-release Version 2.0.0, ReadMe, with the information already in the repository**
+
 <p align="center">
  **RICKLoading** is a Delphi library developed to present a loading screen. Using delphi's Fluent Interface. 
 </p>
@@ -36,8 +40,9 @@ Example of using the **RICKLoading**
   begin
     TRICKLoading
       .New
-        .Loading
-          .Execute("Create Procedure");
+        .Form(Self) //Inform the form for Loading
+          .Loading
+            .Execute("Create Procedure");
   end;
 ```
 - Another way to perform Loading
@@ -46,19 +51,20 @@ Example of using the **RICKLoading**
     RICK.Loading;
   begin
     TRICKLoading.New
-      .Executar(
-      procedure
-      begin
-        //Command
-        Sleep(500);
-
-        //Command to refresh the Canvas
-        TThread.Synchronize(TThread.Current,
+      .Form(Self) //Inform the form for Loading
+        .Executar(
         procedure
         begin
-          ShowMessage('Command to refresh the screen here...');
+          //Command
+          Sleep(500);
+
+          //Command to refresh the Canvas
+          TThread.Synchronize(TThread.Current,
+          procedure
+          begin
+            ShowMessage('Command to refresh the screen here...');
+          end);
         end);
-      end);
   end;
 ```
 
@@ -68,30 +74,32 @@ Example of using the **RICKLoading**
     RICK.Loading;
   begin
     TRICKLoading.New
-      .Executar(
-      procedure
-      begin
-        //Delayed Command
-        Sleep(500);
-
-        TThread.Synchronize(TThread.Current,
+      .Form(Self) //Inform the form for Loading
+        .Executar(
         procedure
         begin
-          TRICKLoading.New
-            .ChangeMessage('Changing message'); //Change the message to the user
-        end);
+          //Delayed Command
+          Sleep(500);
 
-        //Outro comando
-        TThread.Sleep(1500);
+          TThread.Synchronize(TThread.Current,
+          procedure
+          begin
+            TRICKLoading.New
+              .Form(Self) //Inform the form for Loading
+                .ChangeMessage('Changing message'); //Change the message to the user
+          end);
 
-        TThread.Synchronize(TThread.Current,
-        procedure
-        begin
-          //Command to refresh the screen
-          ShowMessage('Command to refresh the screen here...');
+          //Outro comando
+          TThread.Sleep(1500);
+
+          TThread.Synchronize(TThread.Current,
+          procedure
+          begin
+            //Command to refresh the screen
+            ShowMessage('Command to refresh the screen here...');
+          end);
         end);
-      end);
-    end;
+  end;
 ```
   
 - Customize the Loading screen using the interface
@@ -102,7 +110,8 @@ Example of using the **RICKLoading**
   var
     LRICKLoading: iRICKLoading;
   begin
-    LRICKLoading:= TRICKLoading.New;
+    LRICKLoading:= TRICKLoading.New.Form(Self);
+    
     LRICKLoading.DoMessage('Loading Modified'); //Changes the initial loading message
     LRICKLoading.SourceSize(32); //Change the font size
     LRICKLoading.SourceName('Segoe UI'); //Change the font type

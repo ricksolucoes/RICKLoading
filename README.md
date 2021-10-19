@@ -3,8 +3,6 @@
 
 # RICKLoading
 
-**Pre-release Version 2.0.0, ReadMe, with the information already in the repository**
-
 <p align="center">
  <b>RICKLoading</b> is a Delphi library developed to present a loading screen. Using delphi's Fluent Interface. 
 </p>

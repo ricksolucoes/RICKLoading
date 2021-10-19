@@ -1,0 +1,80 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object recFundo: TRectangle
+    Align = Contents
+    Fill.Color = xC3000000
+    Size.Width = 640.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object arcCobertura: TArc
+      Align = Center
+      HitTest = False
+      Margins.Bottom = 55.000000000000000000
+      Size.Width = 90.000000000000000000
+      Size.Height = 90.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = claWhite
+      Stroke.Thickness = 5.000000000000000000
+      Stroke.Cap = Round
+      object faniCobertura: TFloatAnimation
+        AnimationType = InOut
+        Duration = 0.800000011920929000
+        Interpolation = Back
+        OnFinish = faniCoberturaFinish
+        PropertyName = 'EndAngle'
+        StartValue = 0.000000000000000000
+        StopValue = 360.000000000000000000
+      end
+    end
+    object arcMaior: TArc
+      Align = Center
+      HitTest = False
+      Margins.Bottom = 55.000000000000000000
+      Size.Width = 60.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = xFF186AC1
+      Stroke.Thickness = 5.000000000000000000
+      EndAngle = 280.000000000000000000
+      object faniMaior: TFloatAnimation
+        AnimationType = InOut
+        Duration = 1.000000000000000000
+        Inverse = True
+        Loop = True
+        PropertyName = 'RotationAngle'
+        StartValue = 0.000000000000000000
+        StopValue = 360.000000000000000000
+      end
+    end
+    object arcMenor: TArc
+      Align = Center
+      HitTest = False
+      Margins.Bottom = 55.000000000000000000
+      Size.Width = 25.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = xFF0DA85E
+      Stroke.Thickness = 5.000000000000000000
+      Stroke.Cap = Round
+      EndAngle = 280.000000000000000000
+      object faniMenor: TFloatAnimation
+        AnimationType = InOut
+        Duration = 1.000000000000000000
+        Loop = True
+        PropertyName = 'RotationAngle'
+        StartValue = 0.000000000000000000
+        StopValue = 360.000000000000000000
+      end
+    end
+  end
+end
